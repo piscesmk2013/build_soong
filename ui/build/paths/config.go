@@ -106,6 +106,8 @@ var Configuration = map[string]PathConfig{
 	"llvm-addr2line": Allowed,
 	"locale":         Allowed,
 	"lsof":           Allowed,
+	"ld.lld":  Allowed,
+	"llvm-ar": Allowed,
 	"openssl":        Allowed,
 	"patch":          Allowed,
 	"pkg-config":     Allowed,
