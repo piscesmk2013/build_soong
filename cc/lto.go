@@ -91,9 +91,14 @@ func (lto *lto) flags(ctx BaseModuleContext, flags Flags) Flags {
 	if lto.LTO(ctx) {
 		var ltoCFlag string
 		var ltoLdFlag string
-		// HACK: use full lto opposed to thin lto.
-		// We do not care about compile times for runtime improvement.
-		ltoCFlag = "-flto"
+		if lto.ThinLTO() {
+			ltoCFlag = "-flto=thin -fsplit-lto-unit"
+		} else if lto.FullLTO() {
+			ltoCFlag = "-flto"
+		} else {
+			ltoCFlag = "-flto=thin -fsplit-lto-unit"
+			ltoLdFlag = "-Wl,--lto-O0"
+		}
 
 		flags.Local.CFlags = append(flags.Local.CFlags, ltoCFlag)
 		flags.Local.LdFlags = append(flags.Local.LdFlags, ltoCFlag)
