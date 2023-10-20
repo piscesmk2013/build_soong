@@ -170,7 +170,9 @@ var (
 		"-Wl,--exclude-libs,libunwind.a",
 	}
 
-	deviceGlobalLldflags = append(deviceGlobalLdflags, commonGlobalLldflags...)
+	deviceGlobalLldflags = append(append(deviceGlobalLdflags, commonGlobalLldflags...),
+		"-Wl,--compress-debug-sections=zstd",
+	)
 
 	hostGlobalCflags = []string{}
 
