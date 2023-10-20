@@ -108,6 +108,8 @@ var (
 		// This macro allows the bionic versioning.h to indirectly determine whether the
 		// option -Wunguarded-availability is on or not.
 		"-D__ANDROID_UNAVAILABLE_SYMBOLS_ARE_WEAK__",
+		// Use zstd to compress debug data.
+		"-gz=zstd",
 	}
 
 	commonGlobalConlyflags = []string{}
