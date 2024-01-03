@@ -110,6 +110,10 @@ func (lto *lto) flags(ctx BaseModuleContext, flags Flags) Flags {
 			ltoLdFlags = append(ltoLdFlags, "-Wl,--lto-O0")
 		}
 
+		// Utilize unified LTO for greater optimization than ThinLTO with a
+		// lesser compile time hit than full lto
+		ltoCFlags = append(ltoCFlags, "-funified-lto")
+
 		ltoCOnlyFlags = append(ltoCOnlyFlags, "-O3")
 		// Enable Polly globally
 		ltoCOnlyFlags = append(ltoCOnlyFlags, "-mllvm -polly")
