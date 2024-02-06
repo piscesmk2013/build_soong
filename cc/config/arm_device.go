@@ -28,20 +28,13 @@ var (
 
 	armCflags = []string{
 		"-fomit-frame-pointer",
-		// Revert this after b/319464283 is fixed
-		"-mllvm", "-enable-shrink-wrap=false",
 	}
 
-	armCppflags = []string{
-		// Revert this after b/319464283 is fixed
-		"-mllvm", "-enable-shrink-wrap=false",
-  }
+	armCppflags = []string{}
 
 	armLdflags = []string{
 		"-Wl,--hash-style=gnu",
 		"-Wl,-m,armelf",
-		// Revert this after b/319464283 is fixed
-		"-Wl,-mllvm", "-Wl,-enable-shrink-wrap=false",
 	}
 
 	armLldflags = armLdflags
