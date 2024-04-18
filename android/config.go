@@ -1103,10 +1103,6 @@ func (c *config) DisableScudo() bool {
 	return !Bool(c.productVariables.Malloc_use_scudo)
 }
 
-func (c *config) DisableMimalloc() bool {
-	return !Bool(c.productVariables.Malloc_use_mimalloc)
-}
-
 func (c *config) Android64() bool {
 	for _, t := range c.Targets[Android] {
 		if t.Arch.ArchType.Multilib == "lib64" {

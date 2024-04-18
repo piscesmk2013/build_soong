@@ -143,10 +143,6 @@ var fixSteps = []FixStep{
 		Fix:  runPatchListMod(removeObsoleteProperty("sanitize.scudo")),
 	},
 	{
-		Name: "removeMimallocProperty",
-		Fix:  runPatchListMod(removeObsoleteProperty("sanitize.mimalloc")),
-	},
-	{
 		Name: "removeAndroidLicenseKinds",
 		Fix:  runPatchListMod(removeIncorrectProperties("android_license_kinds")),
 	},
